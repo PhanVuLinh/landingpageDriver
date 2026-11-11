@@ -1,0 +1,10 @@
+{
+  "name": "Dịch vụ vận tải Đình Thư",
+  "short_name": "Đình Thư",
+  "lang": "vi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2ebe0",
+  "theme_color": "#f2ebe0",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

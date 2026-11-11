@@ -1,0 +1,41 @@
+<svg class="truck-svg" viewBox="0 0 900 440" role="img" aria-label="Hình minh họa xe tải Đình Thư" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .wheel { fill: #202c28; stroke: #d2cbbb; stroke-width: 4; }
+      .wheel .tire-inner { fill: #333f39; stroke: #101b17; stroke-width: 3; }
+      .wheel .hub { fill: #c0b8a6; stroke: #263d36; stroke-width: 4; }
+      .wheel path { fill: none; stroke: #b5ad9c; stroke-width: 4; stroke-linecap: round; }
+    </style>
+    <filter id="truckShadow" x="-15%" y="-30%" width="130%" height="170%"><feGaussianBlur stdDeviation="10"/></filter>
+    <linearGradient id="bodyPaint" x1="0" x2="0.18" y1="0" y2="1"><stop stop-color="#f7f3e8"/><stop offset="1" stop-color="#dcd8c9"/></linearGradient>
+    <linearGradient id="cabPaint" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ff7954"/><stop offset="1" stop-color="#e55237"/></linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#c9e2dd"/><stop offset="1" stop-color="#73958f"/></linearGradient>
+  </defs>
+  <ellipse cx="454" cy="380" rx="395" ry="25" fill="#16352d" opacity=".17" filter="url(#truckShadow)"/>
+  <path d="M91 136q0-12 12-12h481q15 0 15 15v207H91z" fill="#19372f" opacity=".18" transform="translate(0 8)"/>
+  <path d="M97 127q0-13 13-13h478q12 0 12 13v210H97z" fill="url(#bodyPaint)" stroke="#233b34" stroke-width="8"/>
+  <path d="M105 135h486v31H105z" fill="#f16b49"/>
+  <path d="M119 178h453" stroke="#a49f90" stroke-width="3" opacity=".75"/>
+  <path d="M230 181v143m155-143v143m155-143v143" stroke="#fffdf5" stroke-width="3" opacity=".58"/>
+  <path d="M107 312h491v24q0 8-8 8H108q-7 0-7-8v-15z" fill="#30453e"/>
+
+  <!-- Cabin: boxy cabover profile, with a tall windscreen and near-vertical front. -->
+  <path d="M601 171 737 155q14-2 23 8l29 34q8 9 8 20v108q0 15-16 15H601z" fill="url(#cabPaint)" stroke="#263f37" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M620 179q0-6 6-7l68-7q7 0 7 7v69h-75q-6 0-6-6z" fill="url(#glass)" stroke="#263f37" stroke-width="6" stroke-linejoin="round"/>
+  <path d="m714 168 30-4q8-1 13 6l22 29q4 6 4 13v23h-69z" fill="url(#glass)" stroke="#263f37" stroke-width="6" stroke-linejoin="round"/>
+  <path d="m730 169 15-2q7-1 11 5l23 30h-10z" fill="#fff0dc" opacity=".32"/>
+  <path d="M709 252v70" stroke="#b44332" stroke-width="3" opacity=".72"/>
+  <rect x="718" y="271" width="6" height="14" rx="3" fill="#ce4c36"/>
+  <rect x="784" y="266" width="12" height="21" rx="4" fill="#fff1c8" stroke="#263f37" stroke-width="4"/>
+
+  <path d="M157 351h533" stroke="#263d36" stroke-width="14" stroke-linecap="round"/>
+  <path d="M91 337h698" stroke="#233a33" stroke-width="8" stroke-linecap="round"/>
+  <text x="350" y="245" text-anchor="middle" fill="#3d4b43" font-family="Arial,sans-serif" font-size="36" font-weight="800" letter-spacing="1">ĐÌNH THƯ</text>
+  <text x="350" y="272" text-anchor="middle" fill="#59645b" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">QUẢNG NGÃI</text>
+  <path d="M89 220v102m706-55v53" stroke="#263d36" stroke-width="8"/>
+  <path d="M103 314h9v13h-9zM783 314h12v13h-12z" fill="#f7c969"/>
+
+  <g class="wheel wheel--one"><circle cx="173" cy="347" r="50"/><circle class="tire-inner" cx="173" cy="347" r="35"/><circle class="hub" cx="173" cy="347" r="19"/><path d="M173 309v76m-38-38h76m-65-27 54 54m0-54-54 54"/></g>
+  <g class="wheel wheel--two"><circle cx="689" cy="347" r="50"/><circle class="tire-inner" cx="689" cy="347" r="35"/><circle class="hub" cx="689" cy="347" r="19"/><path d="M689 309v76m-38-38h76m-65-27 54 54m0-54-54 54"/></g>
+  <path d="M145 345a29 29 0 0 1 56-12M661 345a29 29 0 0 1 56-12" fill="none" stroke="#fa7957" stroke-width="6" stroke-linecap="round"/>
+</svg>

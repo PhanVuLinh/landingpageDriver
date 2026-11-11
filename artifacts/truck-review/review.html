@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đối chiếu minh họa xe Đình Thư</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { color: var(--ink); font: 600 14px/1.4 "Be Vietnam Pro", Arial, sans-serif; }
+    .stage { position: relative; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; }
+    .label { position: absolute; top: 34px; left: 42px; z-index: 1; display: flex; align-items: center; gap: 12px; }
+    .badge { padding: 7px 11px; border-radius: 99px; color: var(--paper); background: var(--ink); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .title { font-size: 15px; }
+    .truck { width: min(62vw, 680px); height: auto; transform: translateY(5vh); filter: drop-shadow(0 20px 18px rgb(12 31 25 / 13%)); }
+    .chip { position: absolute; right: 42px; top: 37px; width: 18px; height: 18px; border: 1px solid rgb(0 0 0 / 20%); border-radius: 50%; background: var(--swatch); }
+    @media (max-width: 760px) { .label { top: 18px; left: 18px; } .chip { top: 20px; right: 20px; } .truck { width: 90vw; transform: translateY(4vh); } }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <div class="label"><span class="badge" id="variant"></span><span class="title" id="scene-name"></span></div>
+    <span class="chip" aria-label="Màu nền đang kiểm tra"></span>
+    <img class="truck" id="truck" alt="Minh họa xe tải Đình Thư" />
+  </main>
+  <script>
+    const scenes = {
+      hero: ["Hero · cát", "#f2ebe0"],
+      services: ["Dịch vụ · cam", "#f2ad87"],
+      vehicle: ["Xe · vàng cát", "#e8d27d"],
+      area: ["Khu vực · xanh sage", "#b9d6c4"],
+      steps: ["Đặt xe · trắng xám", "#d9dce0"],
+      contact: ["Liên hệ · xanh đậm", "#18342d"],
+      sea: ["Thử tương phản · xanh biển", "#b8dbe6"],
+      lime: ["Thử tương phản · trắng vôi", "#f3f6e9"]
+    };
+    const query = new URLSearchParams(location.search);
+    const scene = scenes[query.get("scene")] || scenes.hero;
+    const variant = query.get("variant") === "after" ? "after" : "before";
+    document.body.style.backgroundColor = scene[1];
+    document.documentElement.style.setProperty("--swatch", scene[1]);
+    document.documentElement.style.setProperty("--paper", scene[1]);
+    const channels = scene[1].match(/[\da-f]{2}/gi).map((part) => parseInt(part, 16) / 255).map((value) => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+    const luminance = 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+    document.documentElement.style.setProperty("--ink", luminance > 0.179 ? "#000000" : "#ffffff");
+    document.querySelector("#scene-name").textContent = scene[0];
+    document.querySelector("#variant").textContent = variant;
+    document.querySelector("#truck").src = `./${variant}/truck.svg`;
+  </script>
+</body>
+</html>

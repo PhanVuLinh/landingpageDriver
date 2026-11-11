@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f2ebe0" />
+    <meta
+      name="description"
+      content="Dịch vụ vận tải gia đình Đình Thư tại Quảng Ngãi. Chuyển nhà, chở hàng cửa hàng, vật liệu, nội thất và hàng đi tỉnh. Gọi hoặc Zalo 0913159302."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://dinhthu-van-tai.pages.dev/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="preload"
+      href="/fonts/baloo-2-vietnamese.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/baloo-2-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/be-vietnam-pro-vietnamese-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/be-vietnam-pro-latin-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="image" href="/src/truck.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Dịch vụ vận tải Đình Thư" />
+    <meta property="og:title" content="Dịch vụ vận tải Đình Thư | Quảng Ngãi" />
+    <meta
+      property="og:description"
+      content="Đình Thư chở hàng như chở đồ nhà mình. Gọi hoặc Zalo 0913159302."
+    />
+    <meta property="og:url" content="https://dinhthu-van-tai.pages.dev/" />
+    <meta
+      property="og:image"
+      content="https://dinhthu-van-tai.pages.dev/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Xe tải Đình Thư phục vụ vận chuyển tại Quảng Ngãi"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Dịch vụ vận tải Đình Thư | Quảng Ngãi"
+    />
+    <meta
+      name="twitter:description"
+      content="Đình Thư chở hàng như chở đồ nhà mình. Gọi hoặc Zalo 0913159302."
+    />
+    <meta
+      name="twitter:image"
+      content="https://dinhthu-van-tai.pages.dev/og-image.png"
+    />
+    <title>Dịch vụ vận tải Đình Thư | Quảng Ngãi</title>
+  </head>
+  <body>
+    <!-- Nền chuyển màu và hiệu ứng hạt giấy -->
+    <div class="page-wash" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- HỆ THỐNG MẶT ĐƯỜNG VÀ PHỐI CẢNH HÀNH TRÌNH ĐA LỚP
+         Đường làm mốc cố định: mép trên ở 78svh trên desktop, cách đáy 12svh trên mobile.
+         Đồi và đường nối liền nhau hoàn toàn, không có khoảng trống. -->
+    <div class="journey-backdrop" aria-hidden="true">
+      <!-- 1. Lớp xa: dãy đồi mờ, di chuyển rất chậm, chân đồi tiếp giáp trực tiếp mép đường -->
+      <div class="journey-layer journey-layer--horizon">
+        <svg viewBox="0 0 1600 140" preserveAspectRatio="none" focusable="false">
+          <path d="M0 85 Q 220 35 440 80 T 880 65 T 1320 75 T 1600 60 L 1600 140 L 0 140 Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- 2. Lớp giữa: cột điện và hàng cây ven đường cắm tại mép đường, di chuyển chậm hơn xe -->
+      <div class="journey-layer journey-layer--landscape">
+        <svg viewBox="0 0 1600 120" preserveAspectRatio="none" focusable="false">
+          <!-- Cột điện 1 -->
+          <path d="M160 20 v100 M148 35 h24 M142 48 h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M160 20 L 400 38 M160 35 L 400 52" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+          <!-- Hàng cây 1 -->
+          <path d="M360 120 C 350 90 345 60 368 52 C 392 60 386 90 376 120 Z" fill="currentColor"/>
+          <path d="M395 120 C 390 98 385 75 402 70 C 420 75 415 98 408 120 Z" fill="currentColor"/>
+          <!-- Cột điện 2 -->
+          <path d="M680 18 v102 M668 33 h24 M662 46 h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M400 38 L 680 18 M400 52 L 680 33" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+          <!-- Dãy cây nhỏ 2 -->
+          <path d="M920 120 C 910 95 905 70 925 62 C 945 70 940 95 932 120 Z" fill="currentColor"/>
+          <path d="M950 120 C 945 100 940 82 956 78 C 972 82 968 100 962 120 Z" fill="currentColor"/>
+          <!-- Cột điện 3 -->
+          <path d="M1240 16 v104 M1228 31 h24 M1222 44 h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M680 18 L 1240 16 M680 33 L 1240 31" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <!-- 3. Dải mặt đường cố định: bắt đầu từ var(--road-top) kéo dài xuống hết màn hình -->
+      <div class="road-bed">
+        <!-- Vạch mép lề đường (mép trên của đường nơi bánh xe tiếp xúc) -->
+        <div class="road-curb-line"></div>
+        <!-- Vạch đứt trắng phân làn chạy ngược chiều cuộn, nhanh hơn xe -->
+        <div class="road-dashes-track">
+          <div class="road-dashes">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Lớp trước: vài ngọn cỏ và vạch lề mờ nhẹ, không che xe -->
+      <div class="journey-layer journey-layer--foreground">
+        <svg viewBox="0 0 1600 50" preserveAspectRatio="none" focusable="false">
+          <!-- Vài khóm cỏ nhỏ mọc ở mép lề đường -->
+          <path d="M120 50 Q 115 25 105 18 M120 50 Q 124 20 132 14 M120 50 Q 128 30 138 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M540 50 Q 535 28 526 20 M540 50 Q 544 22 552 16 M540 50 Q 548 32 556 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1020 50 Q 1015 26 1006 18 M1020 50 Q 1024 21 1032 15 M1020 50 Q 1028 30 1038 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1440 50 Q 1435 27 1426 19 M1440 50 Q 1444 22 1452 16 M1440 50 Q 1448 32 1458 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Thanh điều hướng đầu trang -->
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Đình Thư — về đầu trang">
+        <span class="brand-mark" aria-hidden="true">ĐT</span>
+        <span class="brand-name">Vận tải<br /><strong>Đình Thư</strong></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
+        <a href="#dich-vu">Dịch vụ</a>
+        <a href="#xe">Chiếc xe</a>
+        <a href="#khu-vuc">Khu vực</a>
+      </nav>
+      <a
+        class="header-call js-contact"
+        data-contact="call"
+        href="tel:0913159302"
+        aria-label="Gọi báo giá 0913159302"
+      >
+        <span>Gọi báo giá</span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <!-- Khung xe tải: Đáy bánh xe luôn chạm mép trên của đường tại var(--road-top) -->
+    <div class="truck-stage" id="truck-stage" aria-hidden="true">
+      <div id="truck-art" class="truck-art"></div>
+    </div>
+
+    <main id="top">
+      <!-- 01 HERO -->
+      <section
+        class="panel hero"
+        id="gioi-thieu"
+        data-panel="hero"
+        aria-labelledby="hero-title"
+      >
+        <div class="section-inner hero-inner">
+          <div class="lane-copy hero-copy">
+            <p class="eyebrow">
+              <span class="eyebrow-dot"></span><span id="hero-kicker"></span>
+            </p>
+            <h1 id="hero-title"></h1>
+            <p id="hero-description" class="hero-description"></p>
+            <div class="hero-actions" id="hero-actions"></div>
+            <p class="hero-note" id="hero-note"></p>
+          </div>
+          <div class="lane-truck-spacer" aria-hidden="true"></div>
+          <div class="hero-index" aria-hidden="true">
+            <span>01</span><i></i><span>06</span>
+          </div>
+          <a class="scroll-hint" href="#dich-vu" aria-label="Cuộn xuống để xem dịch vụ"
+            ><span>Cuộn để xem thêm</span
+            ><span class="scroll-line" aria-hidden="true"></span
+          ></a>
+        </div>
+      </section>
+
+      <!-- 02 DỊCH VỤ -->
+      <section
+        class="panel services"
+        id="dich-vu"
+        data-panel="services"
+        aria-labelledby="services-title"
+      >
+        <div class="section-inner services-inner">
+          <div class="lane-copy services-copy">
+            <div class="section-heading">
+              <p class="eyebrow">
+                <span class="section-number">01 / DỊCH VỤ</span>
+              </p>
+              <h2 id="services-title"></h2>
+              <p id="services-intro" class="section-intro"></p>
+            </div>
+            <div class="service-grid" id="service-list"></div>
+            <div class="section-foot">
+              <span>Chưa rõ xe có chở vừa không?</span
+              ><a
+                class="text-link js-contact"
+                data-contact="call"
+                href="tel:0913159302"
+                >Gọi hỏi Đình Thư <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <div class="lane-truck-spacer" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 03 CHIẾC XE (SHOWCASE) -->
+      <section
+        class="panel vehicle"
+        id="xe"
+        data-panel="vehicle"
+        aria-labelledby="vehicle-title"
+      >
+        <div class="section-inner vehicle-inner">
+          <div class="lane-copy vehicle-copy">
+            <div class="section-heading vehicle-heading">
+              <p class="eyebrow">
+                <span class="section-number">02 / CHIẾC XE</span>
+              </p>
+              <h2 id="vehicle-title"></h2>
+              <p id="vehicle-intro" class="section-intro"></p>
+            </div>
+            <div class="spec-list" id="spec-list"></div>
+            <p class="vehicle-caption" id="vehicle-caption"></p>
+          </div>
+          <div class="lane-truck-spacer vehicle-truck-spacer" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 04 KHU VỰC -->
+      <section
+        class="panel area"
+        id="khu-vuc"
+        data-panel="area"
+        aria-labelledby="area-title"
+      >
+        <div class="section-inner area-inner">
+          <div class="lane-copy area-copy">
+            <p class="eyebrow">
+              <span class="section-number">03 / KHU VỰC</span>
+            </p>
+            <h2 id="area-title"></h2>
+            <p id="area-intro" class="section-intro"></p>
+            <p class="area-location">
+              <span class="pin" aria-hidden="true">✳</span
+              ><span id="area-location"></span>
+            </p>
+            <a
+              id="map-link"
+              class="text-link map-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+          </div>
+          <div class="map-frame-wrap">
+            <iframe
+              id="map-frame"
+              title="Bản đồ khu vực vận tải Đình Thư tại Quảng Ngãi"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+            <span class="map-stamp" aria-hidden="true"
+              >ĐT<br /><small>QUẢNG NGÃI</small></span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 ĐẶT XE -->
+      <section
+        class="panel steps"
+        id="dat-xe"
+        data-panel="steps"
+        aria-labelledby="steps-title"
+      >
+        <div class="section-inner steps-inner">
+          <div class="lane-copy steps-copy">
+            <div class="section-heading">
+              <p class="eyebrow">
+                <span class="section-number">04 / ĐẶT XE</span>
+              </p>
+              <h2 id="steps-title"></h2>
+              <p id="steps-intro" class="section-intro"></p>
+            </div>
+            <ol class="steps-list" id="steps-list"></ol>
+            <p class="step-after" id="steps-after"></p>
+          </div>
+          <div class="lane-truck-spacer" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 06 LIÊN HỆ -->
+      <section
+        class="panel contact"
+        id="lien-he"
+        data-panel="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="section-inner contact-inner">
+          <div class="lane-copy contact-copy">
+            <p class="eyebrow">
+              <span class="eyebrow-dot"></span><span id="contact-kicker"></span>
+            </p>
+            <h2 id="contact-title"></h2>
+            <p id="contact-intro" class="contact-intro"></p>
+            <a
+              id="big-phone"
+              class="big-phone js-contact"
+              data-contact="call"
+              href="tel:0913159302"
+              aria-label="0913159302"
+            ></a>
+            <div class="contact-actions" id="contact-actions"></div>
+            <p class="contact-area-note" id="contact-area-note"></p>
+            <div class="contact-bottom">
+              <span id="footer-name"></span><a href="#top">Lên đầu trang ↑</a>
+            </div>
+          </div>
+          <div class="lane-truck-spacer" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Thanh Gọi / Zalo cố định dưới màn hình mobile (chuẩn WCAG AA, chạm 48px) -->
+    <div
+      class="mobile-contact"
+      id="mobile-contact"
+      aria-label="Liên hệ Đình Thư"
+    ></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
