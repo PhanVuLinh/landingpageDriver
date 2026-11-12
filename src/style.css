@@ -69,7 +69,9 @@
      - Desktop: mép trên nằm ở khoảng 78svh.
      - Mobile: mép trên nằm ngay phía trên thanh Gọi/Zalo (cách khoảng 12svh so với đáy). */
   --road-top: 78svh;
+  --truck-w: min(28vw, 420px);
   --truck-x: 64vw;
+  --truck-ty: calc(-397 / 440 * 100% + 3px);
 
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -232,48 +234,30 @@ a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; border-r
 .arrow { font-size: 16px; }
 
 /* KHUNG XE TẢI (TRUCK STAGE)
-   - ĐƯỜNG LÀM MỐC CHO MỌI THỨ:
-     * Gốc top đặt đúng tại var(--road-top) (mép trên mặt đường).
-     * Điểm đáy bánh xe là y=397 trên tổng chiều cao 440px trong SVG.
-     * Khi dùng translateY(calc(-397 / 440 * 100% + 3px)), đáy bánh xe LUÔN LUÔN CHẠM MẶT ĐƯỜNG tại var(--road-top) và chìm xuống 3px.
-     * Không còn dùng giá trị y cố định theo vh! Bánh xe bám mặt đường 100%!
-   - BỎ HẾT ROTATE:
-     * Xe chỉ dịch ngang (trục x) và đổi kích thước nhẹ. Không có rotate!
-   - GIỚI HẠN KÍCH THƯỚC:
-     * Section thường Desktop: cao tối đa 28svh, rộng tối đa 32vw.
-     * Showcase Desktop: cao tối đa 42svh, rộng tối đa 50vw.
-     * Mobile: rộng tối đa 52vw, cao tối đa 22svh. */
+   - MỘT KÍCH THƯỚC CỐ ĐỊNH SUỐT TRANG, KHÔNG ĐỔI THEO VỊ TRÍ CUỘN:
+     * Kích thước xe chỉ phụ thuộc chiều rộng màn hình qua biến duy nhất --truck-w.
+     * Chiều cao tự suy ra từ aspect-ratio: 900 / 440.
+     * Xóa bỏ hoàn toàn mọi phép scale gắn với cuộn hoặc section.
+   - BÁM MẶT ĐƯỜNG:
+     * Đáy bánh xe luôn tiếp xúc mép trên mặt đường var(--road-top) (chìm 3px).
+     * Transform chỉ còn translateX (thay đổi làn xe) và translateY cố định bám đường. */
 .truck-stage {
   position: fixed;
   z-index: 2;
   pointer-events: none;
   aspect-ratio: 900 / 440;
+  width: var(--truck-w);
+  height: auto;
   top: var(--road-top);
   left: 0;
-  width: min(32vw, calc(28svh * 900 / 440));
-  max-width: 32vw;
-  max-height: 28svh;
-  transform: translate(var(--truck-x, 64vw), calc(-397 / 440 * 100% + 3px));
+  transform: translate(var(--truck-x, 64vw), var(--truck-ty));
   transform-origin: 50% calc(397 / 440 * 100%);
-  transition:
-    width .35s cubic-bezier(0.2, 0, 0, 1),
-    max-width .35s cubic-bezier(0.2, 0, 0, 1),
-    max-height .35s cubic-bezier(0.2, 0, 0, 1),
-    opacity .28s ease,
-    filter .28s ease;
+  transition: opacity .25s ease;
 }
 
-/* Khi ở section showcase (#xe) trên Desktop */
-body.in-showcase .truck-stage {
-  width: min(48vw, calc(42svh * 900 / 440));
-  max-width: 50vw;
-  max-height: 42svh;
-}
-
-/* Khi có va chạm hộp bao */
+/* Khi có va chạm hộp bao: chỉ giảm opacity để né tránh, kích thước xe giữ nguyên cố định */
 .truck-stage.truck-colliding {
   opacity: .35 !important;
-  transform: translate(var(--truck-x, 64vw), calc(-397 / 440 * 100% + 3px)) scale(0.82) !important;
 }
 
 .truck-art {
@@ -446,15 +430,24 @@ h2 { margin-bottom: 8px; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.05;
 .text-link { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 3px; border-bottom: 1.5px solid currentColor; font-size: 12px; font-weight: 700; }
 .text-link span { font-size: 15px; }
 
-/* Vehicle Showcase Section */
-.vehicle-copy { flex: 0 0 46%; max-width: 520px; }
-.vehicle-truck-spacer { flex: 0 0 50%; }
-.spec-list { width: 100%; margin-top: 18px; position: relative; z-index: 3; }
-.spec-row { min-height: 56px; display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 14px; border-top: 1px solid var(--line); }
-.spec-row:last-child { border-bottom: 1px solid var(--line); }
-.spec-label { font-size: 12px; font-weight: 500; }
-.spec-row strong { font-family: var(--headline); font-size: 19px; font-weight: 700; text-align: right; }
-.vehicle-caption { margin: 14px 0 0; font-size: 11px; line-height: 1.6; opacity: .85; }
+/* Vehicle Section (Thẻ riêng chứa thông số xe nằm cạnh xe) */
+.vehicle-copy { flex: 0 0 48%; max-width: 530px; }
+.vehicle-truck-spacer { flex: 0 0 48%; }
+.spec-card {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--paper) 88%, var(--ink) 4%);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 4px 6px 0 color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.spec-card .spec-list { width: 100%; margin-top: 0; position: relative; z-index: 3; }
+.spec-card .spec-row { min-height: 48px; display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 14px; border-top: 1px solid var(--line); }
+.spec-card .spec-row:first-child { border-top: none; }
+.spec-card .spec-row:last-child { border-bottom: none; }
+.spec-card .spec-label { font-size: 12px; font-weight: 500; }
+.spec-card .spec-row strong { font-family: var(--headline); font-size: 18px; font-weight: 700; text-align: right; }
+.spec-card .vehicle-caption { margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 11px; line-height: 1.6; opacity: .85; }
 
 /* Area Section (Bản đồ gọn gàng phía trên 70svh) */
 .area-inner { display: grid; grid-template-columns: 46% 50%; align-items: center; gap: 4%; }
@@ -565,8 +558,8 @@ h2 { margin-bottom: 8px; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.05;
 @media (max-width: 760px) {
   :root {
     scroll-padding-top: 66px;
-    /* Mép trên dải đường nằm ngay trên thanh Gọi/Zalo (cách khoảng 12svh so với đáy) */
     --road-top: calc(100svh - 12svh - 68px - env(safe-area-inset-bottom, 0px));
+    --truck-w: min(52vw, 240px);
     --truck-x: 50vw;
   }
   
@@ -579,28 +572,22 @@ h2 { margin-bottom: 8px; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.05;
   .header-call { min-height: 44px; min-width: 44px; gap: 8px; padding-inline: 14px; font-size: 11px; }
 
   /* KHUNG XE TRÊN MOBILE:
-     - Rộng tối đa 52vw, cao tối đa 22svh.
-     - Đáy bánh xe luôn chạm mép trên của mặt đường tại var(--road-top) (chìm 3px).
-     - Không quay góc, không lơ lửng. */
+     - Kích thước cố định duy nhất qua --truck-w: min(52vw, 240px).
+     - Chiều cao tự suy ra từ aspect-ratio: 900 / 440.
+     - Đáy bánh xe chạm mép trên mặt đường var(--road-top) (chìm 3px).
+     - Không quay góc, không scale khi cuộn. */
   .truck-stage {
-    width: min(52vw, calc(22svh * 900 / 440)) !important;
-    max-width: 52vw !important;
-    max-height: 22svh !important;
+    width: var(--truck-w) !important;
+    max-width: none !important;
+    max-height: none !important;
     left: 0 !important;
     top: var(--road-top) !important;
-    transform: translate(var(--truck-x, 50vw), calc(-397 / 440 * 100% + 3px)) translateX(-50%) !important;
+    transform: translate(var(--truck-x, 50vw), var(--truck-ty)) translateX(-50%) !important;
     transform-origin: 50% calc(397 / 440 * 100%) !important;
-  }
-  body.in-showcase .truck-stage {
-    width: min(52vw, calc(22svh * 900 / 440)) !important;
-    max-width: 52vw !important;
-    max-height: 22svh !important;
-    transform: translate(var(--truck-x, 50vw), calc(-397 / 440 * 100% + 3px)) translateX(-50%) !important;
   }
 
   .truck-stage.truck-colliding {
     opacity: .35 !important;
-    transform: translate(var(--truck-x, 50vw), calc(-397 / 440 * 100% + 3px)) translateX(-50%) scale(0.8) !important;
   }
 
   /* Làn chữ trên Mobile: chữ ở nửa trên, có đủ đệm đáy trên mặt đường */

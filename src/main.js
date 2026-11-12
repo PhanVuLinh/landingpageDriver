@@ -191,7 +191,7 @@ const colorStops = [
 const truckStopsDesktop = [
   { x: 62 }, // Hero: làn xe bên phải
   { x: 66 }, // Dịch vụ: lướt ngang sang phải
-  { x: 54 }, // Chiếc xe: showcase (phóng to nhẹ theo CSS .in-showcase)
+  { x: 60 }, // Chiếc xe: làn xe bên phải (kích thước cố định)
   { x: 68 }, // Khu vực: lướt ngang sang phải, nhường chỗ thoáng cho bản đồ
   { x: 63 }, // Đặt xe: làn xe bên phải
   { x: 65 }  // Liên hệ: làn xe bên phải
@@ -314,11 +314,6 @@ if (reducedMotion) {
     if (active) {
       const index = panels.indexOf(active.target);
       setInkForBackground(colorStops[index]);
-      if (active.target.id === "xe") {
-        document.body.classList.add("in-showcase");
-      } else {
-        document.body.classList.remove("in-showcase");
-      }
     }
   }, { threshold: [0.25, 0.5, 0.75] });
   panels.forEach((panel) => observer.observe(panel));
@@ -378,14 +373,6 @@ function setupScrollMotion() {
     const color = interpolateColor(left.color, right.color, progress);
     setInkForBackground(color);
     gsap.set(pageWash, { backgroundColor: color });
-
-    // Kiểm tra và bật/tắt chế độ showcase xe
-    const activeSection = progress > 0.5 ? right : left;
-    if (activeSection.id === "xe") {
-      document.body.classList.add("in-showcase");
-    } else {
-      document.body.classList.remove("in-showcase");
-    }
 
     // TÍNH TOÁN VỊ TRÍ X CỦA XE (XE LUÔN BÁM ĐƯỜNG TRÊN TRỤC Y, KHÔNG XOAY GÓC)
     const currentX = gsap.utils.interpolate(left.x, right.x, progress);

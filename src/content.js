@@ -41,7 +41,8 @@ export const content = {
     specs: [
       { label: "Dòng xe", value: "Thaco Ollin 500B" },
       { label: "Tải trọng", value: "5 tấn" },
-      { label: "Thùng xe", value: "Dài khoảng 4,3 m" }
+      { label: "Thùng xe", value: "Dài khoảng 4,3 m" },
+      { label: "Động cơ", value: "Máy dầu" }
     ],
     caption: "Kích thước và tải trọng cụ thể sẽ được trao đổi trước mỗi chuyến."
   },
